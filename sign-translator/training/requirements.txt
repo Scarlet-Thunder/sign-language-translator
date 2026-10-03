@@ -1,5 +1,0 @@
-mediapipe>=0.10.14
-tensorflow>=2.15
-numpy
-scikit-learn
-matplotlib
