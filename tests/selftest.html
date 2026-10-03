@@ -1,0 +1,23 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>SignLens self-test</title>
+  <style>
+    body { font: 13px/1.5 ui-monospace, Consolas, monospace; margin: 16px; background: #fff; color: #111; }
+    @media (prefers-color-scheme: dark) { body { background: #111; color: #eee; } }
+  </style>
+  <script src="https://cdn.jsdelivr.net/npm/@tensorflow/tfjs@4.22.0/dist/tf.min.js"></script>
+</head>
+<body>
+  <pre id="out">Running…
+</pre>
+  <script type="module">
+    import { run } from './selftest.js';
+    const out = document.getElementById('out');
+    window.selftest = run((line) => { out.textContent += line + '\n'; })
+      .catch((e) => { out.textContent += 'ERROR ' + e.stack; return { error: String(e) }; });
+  </script>
+</body>
+</html>
